@@ -11,7 +11,7 @@ import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.models.FullNewsModel
 import kotlinx.android.synthetic.main.activity_news_card_view.view.*
 
-class HeadlinesRecyclerViewAdapter(var headLines: List<FullNewsModel>?): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
+class HeadlinesRecyclerViewAdapter(var headLines: MutableList<FullNewsModel>?): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
 
     class HeadLineHolder(headlineCard: View): RecyclerView.ViewHolder(headlineCard){
 
@@ -21,7 +21,7 @@ class HeadlinesRecyclerViewAdapter(var headLines: List<FullNewsModel>?): Recycle
 
             Glide.with(itemView)
                 .load(headline.headLineThumbNail)
-                .into(itemView.HeadLineThumbNail)
+                .into(itemView.HeadLineThumbNailCardView.HeadLineThumbNail)
         }
 
     }
