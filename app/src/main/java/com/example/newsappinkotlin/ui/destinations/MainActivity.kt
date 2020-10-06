@@ -1,4 +1,4 @@
-package com.example.newsappinkotlin
+package com.example.newsappinkotlin.ui.destinations
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

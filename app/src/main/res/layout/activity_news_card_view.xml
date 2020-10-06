@@ -11,6 +11,7 @@
     android:elevation="30dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardConstraintView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/news_card_view_grad_bg"
@@ -32,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/newsthumbnail" />
+                tools:src="@drawable/kazi_mizan_61idm7r4ere_unsplash" />
 
         </androidx.cardview.widget.CardView>
 
@@ -67,6 +68,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/HeadLineTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>
