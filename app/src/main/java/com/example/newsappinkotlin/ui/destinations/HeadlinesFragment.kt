@@ -41,5 +41,4 @@ class HeadlinesFragment : Fragment() {
         FullNewsModel(Source(null,"mySource5"),"myAuthor5", "myDescription5", "myHeadline5","https://images.unsplash.com/photo-1584940120743-8981ca35b012?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", "2020-10-05T05:25:58Z","myContent5")
     )
 
-
 }
