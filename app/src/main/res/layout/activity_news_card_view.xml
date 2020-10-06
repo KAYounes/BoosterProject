@@ -3,7 +3,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="390dp"
+    android:layout_width="380dp"
     android:layout_height="115dp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="5dp"
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/kazi_mizan_61idm7r4ere_unsplash" />
+                tools:src="@drawable/newsthumbnail" />
 
         </androidx.cardview.widget.CardView>
 

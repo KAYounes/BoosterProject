@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -12,9 +15,13 @@ import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
 import com.example.newsappinkotlin.models.Source
+import com.example.newsappinkotlin.viewmodel.headlinesViewModel
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
 class HeadlinesFragment : Fragment() {
+    lateinit var viewModel: headlinesViewModel
+    lateinit var recyclerViewAdapter: HeadlinesRecyclerViewAdapter
+    lateinit var linearLayoutManager: LinearLayoutManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,8 +33,25 @@ class HeadlinesFragment : Fragment() {
 //        newsFeedRecyclerView.adapter = HeadlinesRecyclerViewAdapter(list);
 //        newsFeedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
 
+
+//        val viewModel: headlinesViewModel= headlinesViewModel()
+        recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf())
+        linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+//        newsFeedRecyclerView.adapter = recyclerViewAdapter
+//        newsFeedRecyclerView.layoutManager = linearLayoutManager
+
+        viewModel = ViewModelProvider(this).get(headlinesViewModel::class.java)
+        viewModel.headlinesMutableLiveDate.observe(viewLifecycleOwner,
+        Observer { t -> createAdapter(t) })
+        viewModel.getNewsList()
     }
 
+    fun createAdapter(headliens: ArrayList<FullNewsModel>){
+        recyclerViewAdapter = HeadlinesRecyclerViewAdapter(headliens)
+        newsFeedRecyclerView.adapter = recyclerViewAdapter
+        newsFeedRecyclerView.layoutManager = linearLayoutManager
+
+    }
 
 
 

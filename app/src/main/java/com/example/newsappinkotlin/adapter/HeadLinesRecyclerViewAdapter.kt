@@ -20,11 +20,12 @@ class HeadlinesRecyclerViewAdapter(var headLines: MutableList<FullNewsModel>?): 
 
         fun onBind(headline: FullNewsModel){
             itemView.HeadLineTitle.text = headline.headLineTitle
-            itemView.HeadLineSource.text = "${headline.headLineSource.name} • ${getHoursAgo(headline.headLinePublish)}"
+            itemView.HeadLineSource.text = "${headline.headLineSource?.name} • ${getHoursAgo(headline.headLinePublish)}"
 
             Glide.with(itemView)
-                .load("https://cdn.vox-cdn.com/thumbor/mnlFys55zreb2bZ0fH1lAJ0t1b0=/0x138:1920x1143/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/21935341/z_5f7978c01b3ca.jpg")
+                .load(headline.headLineThumbNail).error(R.drawable.news_placeholder)
                 .into(itemView.HeadLineThumbNail)
+
         }
 
     }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsappinkotlin.R
+import com.example.newsappinkotlin.models.FullNewsModel
+import com.example.newsappinkotlin.network.ApiClient2
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,5 +15,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bottom_nav_view.setupWithNavController(findNavController(R.id.nav_host_fragment_container))
+
+//        ApiClient2.callNewsApi(::response, ::fail)
+    }
+
+    private fun fail() {
+
+    }
+
+    private fun response(arrayList: ArrayList<FullNewsModel>) {
+
     }
 }
