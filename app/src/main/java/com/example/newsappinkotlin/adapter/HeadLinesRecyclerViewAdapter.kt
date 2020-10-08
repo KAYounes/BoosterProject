@@ -11,17 +11,21 @@ import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.models.FullNewsModel
 import kotlinx.android.synthetic.main.activity_news_card_view.view.*
 
-class HeadlinesRecyclerViewAdapter(var headLinesList: MutableList<FullNewsModel>?): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
+class HeadlinesRecyclerViewAdapter(var headLinesList: MutableList<FullNewsModel>?, private var clickListener: CardClickListener): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
 
     class HeadLineHolder(headlineCard: View): RecyclerView.ViewHolder(headlineCard){
 
-        fun onBind(headline: FullNewsModel){
+        fun onBind(headline: FullNewsModel, action:CardClickListener){
             itemView.HeadLineTitle.text = headline.headLineTitle
             itemView.HeadLineSource.text = "${headline.headLineSource?.name.split(".")[0]} • ${getHoursAgo(headline.headLinePublish)}h"
             Glide.with(itemView)
                 .load(headline.headLineThumbNail)
                 .error(R.drawable.news)
                 .into(itemView.HeadLineThumbNail)
+
+            itemView.setOnClickListener{
+                action.onCardClick(headline, adapterPosition)
+            }
 
         }
 
@@ -40,7 +44,7 @@ class HeadlinesRecyclerViewAdapter(var headLinesList: MutableList<FullNewsModel>
 
     override fun onBindViewHolder(holder: HeadLineHolder, position: Int) {
         var headline = headLinesList!![position]
-        holder.onBind(headline)
+        holder.onBind(headline,clickListener)
     }
 
     fun nextPage(headlines: ArrayList<FullNewsModel>){
@@ -60,4 +64,8 @@ private fun getHoursAgo(published: String): String{
     var currentHours = today.time.toString().split(" ")[3].split(":")[0].toInt()
 
     return (currentHours - (publishedHours - 24*(currentDay - publishedDay) )).toString()
+}
+
+interface CardClickListener{
+    fun onCardClick(card: FullNewsModel, position: Int)
 }

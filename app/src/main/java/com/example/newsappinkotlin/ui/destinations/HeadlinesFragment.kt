@@ -10,12 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsappinkotlin.R
+import com.example.newsappinkotlin.adapter.CardClickListener
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
-class HeadlinesFragment : Fragment() {
+class HeadlinesFragment : Fragment(), CardClickListener {
     var currentPage = 1
     lateinit var viewModel: headlinesViewModel
     lateinit var recyclerViewAdapter: HeadlinesRecyclerViewAdapter
@@ -33,7 +34,7 @@ class HeadlinesFragment : Fragment() {
 
 
 //        val viewModel: headlinesViewModel= headlinesViewModel()
-        recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf())
+        recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf(), this)
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         newsFeedRecyclerView.adapter = recyclerViewAdapter
         newsFeedRecyclerView.layoutManager = linearLayoutManager
@@ -70,6 +71,9 @@ class HeadlinesFragment : Fragment() {
         })
     }
 
+    override fun onCardClick(card: FullNewsModel, position: Int) {
+        println("onclick = $card and $position")
+    }
 
 
 //    var list = arrayListOf<FullNewsModel>(
