@@ -7,6 +7,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used
+/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used
+/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used/////////Not used
 object ApiClient2 {
     val baseUrl = "https://newsapi.org/"
     val service: ApiCalls

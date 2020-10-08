@@ -1,20 +1,17 @@
 package com.example.newsappinkotlin.adapter
 
 
-import android.content.Context
 import android.icu.util.Calendar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
 import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.models.FullNewsModel
 import kotlinx.android.synthetic.main.activity_news_card_view.view.*
 
-class HeadlinesRecyclerViewAdapter(var headLines: MutableList<FullNewsModel>?): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
+class HeadlinesRecyclerViewAdapter(var headLinesList: MutableList<FullNewsModel>?): RecyclerView.Adapter<HeadlinesRecyclerViewAdapter.HeadLineHolder>(){
 
     class HeadLineHolder(headlineCard: View): RecyclerView.ViewHolder(headlineCard){
 
@@ -39,11 +36,16 @@ class HeadlinesRecyclerViewAdapter(var headLines: MutableList<FullNewsModel>?): 
             )
         )
 
-    override fun getItemCount() = headLines!!.size
+    override fun getItemCount() = headLinesList!!.size
 
     override fun onBindViewHolder(holder: HeadLineHolder, position: Int) {
-        var headline = headLines!![position]
+        var headline = headLinesList!![position]
         holder.onBind(headline)
+    }
+
+    fun nextPage(headlines: ArrayList<FullNewsModel>){
+        this.headLinesList?.addAll(headlines)
+        notifyItemRangeChanged(this.headLinesList!!.size, (headLinesList!!.size) -1)
     }
 
 

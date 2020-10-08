@@ -7,18 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
-import com.example.newsappinkotlin.models.Source
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
 class HeadlinesFragment : Fragment() {
+    var currentPage = 1
     lateinit var viewModel: headlinesViewModel
     lateinit var recyclerViewAdapter: HeadlinesRecyclerViewAdapter
     lateinit var linearLayoutManager: LinearLayoutManager
@@ -37,20 +35,39 @@ class HeadlinesFragment : Fragment() {
 //        val viewModel: headlinesViewModel= headlinesViewModel()
         recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf())
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        newsFeedRecyclerView.adapter = recyclerViewAdapter
+        newsFeedRecyclerView.layoutManager = linearLayoutManager
 //        newsFeedRecyclerView.adapter = recyclerViewAdapter
 //        newsFeedRecyclerView.layoutManager = linearLayoutManager
 
         viewModel = ViewModelProvider(this).get(headlinesViewModel::class.java)
         viewModel.headlinesMutableLiveDate.observe(viewLifecycleOwner,
-        Observer { t -> createAdapter(t) })
-        viewModel.getNewsList()
+        Observer { t -> fetchPage(t) })
+        viewModel.getNewsList(currentPage)
     }
 
-    fun createAdapter(headliens: ArrayList<FullNewsModel>){
-        recyclerViewAdapter = HeadlinesRecyclerViewAdapter(headliens)
-        newsFeedRecyclerView.adapter = recyclerViewAdapter
-        newsFeedRecyclerView.layoutManager = linearLayoutManager
+    fun fetchPage(headlines: ArrayList<FullNewsModel>){
+        recyclerViewAdapter.nextPage(headlines)
+        attachOnScrollListener()
+    }
 
+    fun attachOnScrollListener(){
+        newsFeedRecyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val totalItems = linearLayoutManager.itemCount
+                val visibleItemsCount = linearLayoutManager.childCount
+                val firstVisibleItem = linearLayoutManager.findLastVisibleItemPosition()
+
+                if(firstVisibleItem + visibleItemsCount >= totalItems/2) {
+                    newsFeedRecyclerView.removeOnScrollListener(this)
+                    if(viewModel.headlinesMutableLiveDate.value?.size != 0){
+                        currentPage++
+                        viewModel.getNewsList(currentPage)
+                    }
+
+                }
+            }
+        })
     }
 
 
