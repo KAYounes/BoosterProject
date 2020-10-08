@@ -6,7 +6,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.models.FullNewsModel
-import com.example.newsappinkotlin.network.ApiClient2
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

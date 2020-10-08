@@ -1,6 +1,8 @@
-package com.example.newsappinkotlin.network
+package com.example.newsappinkotlin.junk
 
 import com.example.newsappinkotlin.models.FullNewsModel
+import com.example.newsappinkotlin.network.ApiCalls
+import com.example.newsappinkotlin.network.NewsResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,7 +19,8 @@ object ApiClient2 {
     init{
         val retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create()).build()
 
-        service = retrofit.create(ApiCalls::class.java)
+        service = retrofit.create(
+            ApiCalls::class.java)
     }
 
         fun callNewsApi(onSuccess: (moviesList: ArrayList<FullNewsModel>) -> Unit, onError: () -> Unit){
