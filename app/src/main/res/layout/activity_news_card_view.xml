@@ -7,8 +7,8 @@
     android:layout_height="115dp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="5dp"
-    app:cardCornerRadius="20dp"
-    android:elevation="30dp">
+    android:elevation="30dp"
+    app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardConstraintView"
@@ -22,7 +22,7 @@
             android:id="@+id/HeadLineThumbNailCardView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:cardCornerRadius="30dp"
+            app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/newsthumbnail" />
+                tools:src="@drawable/large_image" />
 
         </androidx.cardview.widget.CardView>
 
@@ -42,9 +42,10 @@
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:maxHeight="70dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="Sonos stock falls after report highlights removal of its smart speakers from Apple stores - MarketWatch"
             android:textColor="@color/headlinesText"
-            android:text="Unemployment rate reaches 2-year high of 6.9% in October, shows CMIE date; key things to know"
             android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/HeadLineThumbNailCardView"
@@ -55,8 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:textColor="@color/newsSourceText"
             android:text="edition.cnn.com • 1h"
+            android:textColor="@color/newsSourceText"
             app:layout_constraintBottom_toBottomOf="@id/HeadLineThumbNailCardView"
             app:layout_constraintStart_toEndOf="@id/HeadLineThumbNailCardView" />
 

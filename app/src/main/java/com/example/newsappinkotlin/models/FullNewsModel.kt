@@ -3,7 +3,7 @@ package com.example.newsappinkotlin.models
 import com.google.gson.annotations.SerializedName
 
 data class FullNewsModel (
-    @SerializedName("name") var headLineSource: Source,
+    @SerializedName("source") var headLineSource: Source,
     @SerializedName("author") var newsAuthor: String,
     @SerializedName("description") var newsDescription: String,
     @SerializedName("title") var headLineTitle: String,

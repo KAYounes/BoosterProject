@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/popup_menu"
+        android:icon="@drawable/news"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/popup_menu"
+        android:roundIcon="@drawable/news"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 <!--        <activity android:name=".ui.destinations.news_card_view"></activity>-->

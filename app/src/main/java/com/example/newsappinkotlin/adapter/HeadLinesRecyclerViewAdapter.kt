@@ -20,10 +20,10 @@ class HeadlinesRecyclerViewAdapter(var headLines: MutableList<FullNewsModel>?): 
 
         fun onBind(headline: FullNewsModel){
             itemView.HeadLineTitle.text = headline.headLineTitle
-            itemView.HeadLineSource.text = "${headline.headLineSource?.name} • ${getHoursAgo(headline.headLinePublish)}"
-
+            itemView.HeadLineSource.text = "${headline.headLineSource?.name.split(".")[0]} • ${getHoursAgo(headline.headLinePublish)}h"
             Glide.with(itemView)
-                .load(headline.headLineThumbNail).error(R.drawable.news_placeholder)
+                .load(headline.headLineThumbNail)
+                .error(R.drawable.news)
                 .into(itemView.HeadLineThumbNail)
 
         }
