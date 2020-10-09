@@ -11,17 +11,15 @@
     app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cardConstraintViewofsaved"
+        android:id="@+id/cardConstraintView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splashcoloue"
+        android:background="@drawable/news_card_view_grad_bg"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
 
-
-
         <androidx.cardview.widget.CardView
-            android:id="@+id/savedlineThumbNailCardView"
+            android:id="@+id/HeadLineThumbNailCardView"
             android:layout_width="80dp"
             android:layout_height="80dp"
             app:cardCornerRadius="15dp"
@@ -30,47 +28,46 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/savedlineThumbNail"
+                android:id="@+id/HeadLineThumbNail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                tools:src="@drawable/saved_image" />
-
+                tools:src="@drawable/large_image" />
 
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/savedlineTitle"
+            android:id="@+id/HeadLineTitle"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Why you find merit in protesting every anti-corruption measure? BJP to congress on demonetisation"
-            android:textColor="#1e1e1c"
+            android:text="Sonos stock falls after report highlights removal of its smart speakers from Apple stores - MarketWatch"
+            android:textColor="@color/headlinesText"
             android:textSize="14dp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/savedlineThumbNailCardView"
-            app:layout_constraintTop_toTopOf="@id/savedlineThumbNailCardView" />
+            app:layout_constraintStart_toEndOf="@+id/HeadLineThumbNailCardView"
+            app:layout_constraintTop_toTopOf="@id/HeadLineThumbNailCardView" />
 
         <TextView
-            android:id="@+id/savedLineSource"
+            android:id="@+id/HeadLineSource"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="The Times of India • 1h"
-            android:textColor="#a0a19e"
-            app:layout_constraintBottom_toBottomOf="@id/savedlineThumbNailCardView"
-            app:layout_constraintStart_toEndOf="@id/savedlineThumbNailCardView" />
+            android:text="edition.cnn.com • 1h"
+            android:textColor="@color/newsSourceText"
+            app:layout_constraintBottom_toBottomOf="@id/HeadLineThumbNailCardView"
+            app:layout_constraintStart_toEndOf="@id/HeadLineThumbNailCardView" />
 
         <ImageView
-            android:id="@+id/savedpopUpMenue"
+            android:id="@+id/popUpMenue"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/popup_menu"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/savedlineTitle" />
+            app:layout_constraintTop_toTopOf="@id/HeadLineTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
