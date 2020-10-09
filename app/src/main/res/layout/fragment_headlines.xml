@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.destinations.HeadlinesFragment">
+    android:layout_width="380dp"
+    android:layout_height="115dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="5dp"
+    android:elevation="30dp"
+    app:cardCornerRadius="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Headlines Fragment"
-        android:textSize="50sp" />
-
-</FrameLayout>
+</androidx.cardview.widget.CardView>
