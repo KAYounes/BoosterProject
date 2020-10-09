@@ -9,7 +9,7 @@ data class FullNewsModel (
     @SerializedName("title") var headLineTitle: String,
     @SerializedName("urlToImage") var headLineThumbNail: String,
     @SerializedName("publishedAt") var headLinePublish: String,
-    @SerializedName("content") var newContent: String
+    @SerializedName("content") var newsContent: String
 )
 
 class Source(
