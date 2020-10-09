@@ -13,6 +13,7 @@ import com.example.newsappinkotlin.R
 import com.example.newsappinkotlin.adapter.CardClickListener
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
+import com.example.newsappinkotlin.network.ApiClient
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
@@ -32,7 +33,6 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 //        newsFeedRecyclerView.adapter = HeadlinesRecyclerViewAdapter(list);
 //        newsFeedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
 
-
 //        val viewModel: headlinesViewModel= headlinesViewModel()
         recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf(), this)
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -42,7 +42,7 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 //        newsFeedRecyclerView.layoutManager = linearLayoutManager
 
         viewModel = ViewModelProvider(this).get(headlinesViewModel::class.java)
-        viewModel.headlinesMutableLiveDate.observe(viewLifecycleOwner,
+        viewModel.getHeadlines().observe(viewLifecycleOwner,
         Observer { t -> fetchPage(t) })
         viewModel.getNewsList(currentPage)
     }
@@ -61,7 +61,7 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 
                 if(firstVisibleItem + visibleItemsCount >= totalItems/2) {
                     newsFeedRecyclerView.removeOnScrollListener(this)
-                    if(viewModel.headlinesMutableLiveDate.value?.size != 0){
+                    if(viewModel.getHeadlines().value?.size != 0){
                         currentPage++
                         viewModel.getNewsList(currentPage)
                     }

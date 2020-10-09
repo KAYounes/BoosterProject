@@ -1,5 +1,6 @@
 package com.example.newsappinkotlin.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.newsappinkotlin.models.FullNewsModel
@@ -12,7 +13,7 @@ import javax.security.auth.callback.Callback
 
 class headlinesViewModel: ViewModel() {
 
-    var headlinesMutableLiveDate : MutableLiveData<ArrayList<FullNewsModel>> = MutableLiveData()
+    private val headlinesMutableLiveDate : MutableLiveData<ArrayList<FullNewsModel>> = MutableLiveData()
 
     val services: ApiCalls? = ApiClient.getClient()?.create(ApiCalls::class.java)
 
@@ -31,6 +32,10 @@ class headlinesViewModel: ViewModel() {
             }
 
         })
+    }
+
+    fun getHeadlines(): LiveData<ArrayList<FullNewsModel>>{
+        return headlinesMutableLiveDate
     }
 
     fun getNewsList(currentPage: Int){
