@@ -16,8 +16,8 @@ class HeadlinesRecyclerViewAdapter(var headLinesList: MutableList<FullNewsModel>
     class HeadLineHolder(headlineCard: View): RecyclerView.ViewHolder(headlineCard){
 
         fun onBind(headline: FullNewsModel, action:CardClickListener){
-            itemView.HeadLineTitle.text = headline.headLineTitle
-            itemView.HeadLineSource.text = "${headline.headLineSource?.name.split(".")[0]} • ${getHoursAgo(headline.headLinePublish)}h"
+            itemView.HeadLineTitle.text = headline.headLineTitle.split(" - ")[0]
+            itemView.HeadLineSource.text = "${getSource(headline.headLineSource?.name)} • ${getHoursAgo(headline.headLinePublish)}h"
             Glide.with(itemView)
                 .load(headline.headLineThumbNail)
                 .error(R.drawable.news)
@@ -64,6 +64,14 @@ private fun getHoursAgo(published: String): String{
     var currentHours = today.time.toString().split(" ")[3].split(":")[0].toInt()
 
     return (currentHours - (publishedHours - 24*(currentDay - publishedDay) )).toString()
+}
+
+private  fun getSource(sourceName: String): String{
+    var split = sourceName.split(".")
+    if("Www" in split[0]){
+        return split[1]
+    }
+    return split[0]
 }
 
 interface CardClickListener{

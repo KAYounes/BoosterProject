@@ -72,7 +72,7 @@ class HeadlinesFragment : Fragment(), CardClickListener {
     }
 
     override fun onCardClick(card: FullNewsModel, position: Int) {
-        println("onclick = $card and $position")
+        println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
     }
 
 
