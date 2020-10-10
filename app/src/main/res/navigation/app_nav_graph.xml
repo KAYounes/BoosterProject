@@ -14,10 +14,9 @@
             android:id="@+id/action_splashFragment_to_headlinesFragment"
             app:destination="@id/headlinesFragment"
             app:popUpTo="@id/app_nav_graph"
-            app:popUpToInclusive="true">
-
-        </action>
+            app:popUpToInclusive="true" />
     </fragment>
+
     <fragment
         android:id="@+id/headlinesFragment"
         android:name="com.example.newsappinkotlin.ui.destinations.HeadlinesFragment"
@@ -27,6 +26,7 @@
             android:id="@+id/action_headlinesFragment_to_itemDetailsFragment"
             app:destination="@id/itemDetailsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/savedItemsFragment"
         android:name="com.example.newsappinkotlin.ui.destinations.SavedItemsFragment"
@@ -36,11 +36,13 @@
             android:id="@+id/action_savedItemsFragment_to_itemDetailsFragment"
             app:destination="@id/itemDetailsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/itemDetailsFragment"
         android:name="com.example.newsappinkotlin.ui.destinations.ItemDetailsFragment"
         android:label="fragment_item_details"
-        tools:layout="@layout/fragment_item_details" />
+        tools:layout="@layout/fragment_item_details"
+        />
 
 
 </navigation>

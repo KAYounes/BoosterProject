@@ -7,134 +7,139 @@
     android:background="#F8FAF7"
     tools:context=".ui.destinations.ItemDetailsFragment">
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/transparent"
-        android:drawableStart="@drawable/ic_quit"
-        android:drawableLeft="@drawable/ic_quit"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/newsThumbnail"
         android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_deatils"
+        android:src="@drawable/newsthumbnail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:background="@drawable/splashcoloue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="214dp" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="44dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="116dp"
-        android:background="@color/transparent"
-        android:drawableStart="@drawable/ic_share"
-        android:drawableLeft="@drawable/ic_share"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.974"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="44dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="116dp"
-        android:background="@color/transparent"
-        android:drawableStart="@drawable/ic_saved"
-        android:drawableLeft="@drawable/ic_saved"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <TextView
-        android:id="@+id/detailDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) date"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.147" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <ImageView
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed "
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/quit"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailDescription"
-        app:layout_constraintVertical_bias="0.147" />
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:id="@+id/detailInformation"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/blue_yellow_grad_bg_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newsThumbnail" />
 
     <TextView
-        android:id="@+id/detailPublishTime"
+        android:id="@+id/newsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:maxLines="3"
+        android:text="Unemployment rate reaches 2-year high of 6.9% on octber , shows CMIE data ; key things to know"
+        android:textColor="@color/headlinesText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/detailInformation"
+        app:layout_constraintTop_toTopOf="@id/detailInformation" />
+
+    <TextView
+        android:id="@+id/newslPublishTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:text="08 Nov 2018 / 04:43 PM"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.768" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/newsTitle"
+        app:layout_constraintTop_toBottomOf="@id/newsTitle" />
 
     <TextView
-        android:id="@+id/detailSource"
+        android:id="@+id/newsSource"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Financialexpress.com"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.894" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/newsTitle"
+        app:layout_constraintTop_toBottomOf="@id/newslPublishTime" />
+
+    <ImageView
+        android:id="@+id/shareNews"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/share_icon"
+        app:layout_constraintBottom_toBottomOf="@id/newsSource"
+        app:layout_constraintEnd_toStartOf="@id/saveNews" />
+
+    <ImageView
+        android:id="@+id/saveNews"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/save_icon"
+        app:layout_constraintBottom_toBottomOf="@id/newsSource"
+        app:layout_constraintEnd_toEndOf="@id/newsTitle" />
 
     <TextView
-        android:id="@+id/detailTitle"
-        android:layout_width="380dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="16dp"
-        android:text="Unemployment rate reaches 2-year high of 6.9% on octber , shows CMIE data ; key things to know"
+        android:id="@+id/newsDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) date"
         android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/detailInformation"
+        app:layout_constraintStart_toStartOf="@id/detailInformation"
+        app:layout_constraintTop_toBottomOf="@id/detailInformation" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/newsContentScrollable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:scrollbars="vertical"
+        app:layout_constraintEnd_toEndOf="@id/newsDescription"
+        app:layout_constraintStart_toStartOf="@id/newsDescription"
+        app:layout_constraintTop_toBottomOf="@id/newsDescription"
+        app:layout_constraintBottom_toTopOf="@id/readMore">
+
+        <TextView
+            android:id="@+id/newsContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed. In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed."
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/readMore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_grad_bg_round"
+        android:drawableStart="@drawable/find"
+        android:drawablePadding="10dp"
+        android:padding="10dp"
+        android:text="Read More !"
+        android:layout_marginBottom="15dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@id/newsContentScrollable"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

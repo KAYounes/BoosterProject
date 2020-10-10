@@ -74,14 +74,14 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 
     override fun onCardClick(card: FullNewsModel, position: Int) {
         println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
-        val intent = Intent(requireContext(), ItemDetailsFragment::class.java)
-        intent.putExtra("title", card.headLineTitle)
-        intent.putExtra("publishTime", card.headLinePublish)
-        intent.putExtra("source", card.headLineSource.name)
-        intent.putExtra("content", card.newsContent)
-        intent.putExtra("image", card.headLineThumbNail)
-        intent.putExtra("description", card.newsDescription)
-        startActivity(intent)
+//        val intent = Intent(this, ItemDetailsFragment::class.java)
+//        intent.putExtra("title", card.headLineTitle)
+//        intent.putExtra("publishTime", card.headLinePublish)
+//        intent.putExtra("source", card.headLineSource.name)
+//        intent.putExtra("content", card.newsContent)
+//        intent.putExtra("image", card.headLineThumbNail)
+//        intent.putExtra("description", card.newsDescription)
+//        startActivity(intent)
     }
 
 
