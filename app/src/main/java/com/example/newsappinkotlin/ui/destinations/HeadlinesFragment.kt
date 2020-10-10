@@ -17,6 +17,7 @@ import com.example.newsappinkotlin.adapter.CardClickListener
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
 import com.example.newsappinkotlin.network.ApiClient
+import com.example.newsappinkotlin.viewmodel.DetailsViewModel
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_headlines.*
@@ -51,6 +52,7 @@ class HeadlinesFragment : Fragment(), CardClickListener {
         viewModel.getNewsList(currentPage)
     }
 
+
     fun fetchPage(headlines: ArrayList<FullNewsModel>){
         recyclerViewAdapter.nextPage(headlines)
         attachOnScrollListener()
@@ -79,14 +81,18 @@ class HeadlinesFragment : Fragment(), CardClickListener {
         println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
         findNavController().navigate(R.id.action_headlinesFragment_to_itemDetailsFragment)
 
-//        val intent = Intent(this, ItemDetailsFragment::class.java)
-//        intent.putExtra("title", card.headLineTitle)
-//        intent.putExtra("publishTime", card.headLinePublish)
-//        intent.putExtra("source", card.headLineSource.name)
-//        intent.putExtra("content", card.newsContent)
-//        intent.putExtra("image", card.headLineThumbNail)
-//        intent.putExtra("description", card.newsDescription)
-//        startActivity(intent)
+
+        var bundle = Bundle()
+        println("sourcename ${card.headLineSource.name}")
+        bundle.putString("title", card.headLineTitle)
+        bundle.putString("publish", card.headLinePublish)
+        bundle.putString("sourceName", card.headLineSource.name)
+        bundle.putString("description", card.newsDescription)
+        bundle.putString("content", card.newsContent)
+        bundle.putString("image", card.headLineThumbNail)
+        var frag = ItemDetailsFragment()
+        frag.arguments =bundle
+
     }
 
 

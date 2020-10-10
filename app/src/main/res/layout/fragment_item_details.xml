@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/button4"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/quit"
@@ -46,7 +46,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="20dp"
         android:maxLines="3"
-        android:text="Unemployment rate reaches 2-year high of 6.9% on octber , shows CMIE data ; key things to know"
+        android:text="Unemployment rate reaches 2-year high of 6.9% on octber , shows CMIE data ; key things to know "
         android:textColor="@color/headlinesText"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -91,55 +91,61 @@
         app:layout_constraintBottom_toBottomOf="@id/newsSource"
         app:layout_constraintEnd_toEndOf="@id/newsTitle" />
 
-    <TextView
-        android:id="@+id/newsDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="8dp"
-        android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) date"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@id/detailInformation"
-        app:layout_constraintStart_toStartOf="@id/detailInformation"
-        app:layout_constraintTop_toBottomOf="@id/detailInformation" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/newsContentScrollable"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="8dp"
+        android:fillViewport="false"
         android:scrollbars="vertical"
-        app:layout_constraintEnd_toEndOf="@id/newsDescription"
-        app:layout_constraintStart_toStartOf="@id/newsDescription"
-        app:layout_constraintTop_toBottomOf="@id/newsDescription"
-        app:layout_constraintBottom_toTopOf="@id/readMore">
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/detailInformation"
+        app:layout_constraintStart_toStartOf="@id/detailInformation"
+        app:layout_constraintTop_toBottomOf="@id/detailInformation">
 
-        <TextView
-            android:id="@+id/newsContent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed. In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed."
-            android:textColor="#000000"
-            android:textSize="16sp" />
+            android:orientation="vertical"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/newsDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) date."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/newsContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed. In a bad news for the labour markets, the unemployment rate in the country was recorded at 6.9 percent in October 2018, highest in 2 years, according to the Centre for Monitoring Indian Economy (CMIE) data. The number was 6.75 in October last year. A sharp fall in number of people employed was observed as the estimated number of persons employed during October 2018 at 397 million was 2.4 percent lower than the 407 million persons employed in October 2017, CMIE October data showed."
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/readMore"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_grad_bg_round"
+                android:drawableStart="@drawable/find"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:text="Read More !"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"/>
+
+        </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
-    <Button
-        android:id="@+id/readMore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/blue_grad_bg_round"
-        android:drawableStart="@drawable/find"
-        android:drawablePadding="10dp"
-        android:padding="10dp"
-        android:text="Read More !"
-        android:layout_marginBottom="15dp"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newsContentScrollable"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

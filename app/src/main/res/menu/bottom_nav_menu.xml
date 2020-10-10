@@ -4,7 +4,8 @@
     <item
         android:id="@id/headlinesFragment"
         android:title="Headlines"
-        android:icon="@drawable/headlines_menue" />
+        android:icon="@drawable/headlines_menue"
+        />
     <item
         android:id="@id/savedItemsFragment"
         android:title="Saved"
