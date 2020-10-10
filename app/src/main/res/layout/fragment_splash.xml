@@ -16,14 +16,35 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="73dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="K N E W S"
+        android:fontFamily="@font/fredokaone_regular"
+        android:textSize="65sp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo"
+        />
+
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="322dp"
+        android:id="@+id/logo"
+        android:layout_width="250dp"
         android:layout_height="299dp"
-        android:src="@drawable/splash_news"
+        android:src="@drawable/earth"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shadow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

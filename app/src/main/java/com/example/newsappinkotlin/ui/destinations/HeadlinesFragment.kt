@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsappinkotlin.R
@@ -16,6 +18,7 @@ import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
 import com.example.newsappinkotlin.network.ApiClient
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
 class HeadlinesFragment : Fragment(), CardClickListener {
@@ -74,6 +77,8 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 
     override fun onCardClick(card: FullNewsModel, position: Int) {
         println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
+        findNavController().navigate(R.id.action_headlinesFragment_to_itemDetailsFragment)
+
 //        val intent = Intent(this, ItemDetailsFragment::class.java)
 //        intent.putExtra("title", card.headLineTitle)
 //        intent.putExtra("publishTime", card.headLinePublish)
