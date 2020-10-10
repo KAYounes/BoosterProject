@@ -4,9 +4,10 @@
     <item
         android:id="@id/headlinesFragment"
         android:title="Headlines"
-        android:icon="@drawable/ic_headlines" />
+        android:icon="@drawable/headlines_menue"
+        />
     <item
         android:id="@id/savedItemsFragment"
         android:title="Saved"
-        android:icon="@drawable/ic_saved" />
+        android:icon="@drawable/saved_menue" />
 </menu>

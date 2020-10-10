@@ -7,4 +7,5 @@
 <color name="headlinesText">#000000</color>
 <color name="newsSourceText">#555555</color>
     <color name="botNavBarBg">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
 </resources>

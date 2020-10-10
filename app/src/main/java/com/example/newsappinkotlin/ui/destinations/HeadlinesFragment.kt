@@ -1,5 +1,6 @@
 package com.example.newsappinkotlin.ui.destinations
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsappinkotlin.R
@@ -14,7 +17,9 @@ import com.example.newsappinkotlin.adapter.CardClickListener
 import com.example.newsappinkotlin.adapter.HeadlinesRecyclerViewAdapter
 import com.example.newsappinkotlin.models.FullNewsModel
 import com.example.newsappinkotlin.network.ApiClient
+import com.example.newsappinkotlin.viewmodel.DetailsViewModel
 import com.example.newsappinkotlin.viewmodel.headlinesViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_headlines.*
 
 class HeadlinesFragment : Fragment(), CardClickListener {
@@ -47,6 +52,7 @@ class HeadlinesFragment : Fragment(), CardClickListener {
         viewModel.getNewsList(currentPage)
     }
 
+
     fun fetchPage(headlines: ArrayList<FullNewsModel>){
         recyclerViewAdapter.nextPage(headlines)
         attachOnScrollListener()
@@ -73,6 +79,20 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 
     override fun onCardClick(card: FullNewsModel, position: Int) {
         println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
+        findNavController().navigate(R.id.action_headlinesFragment_to_itemDetailsFragment)
+
+
+        var bundle = Bundle()
+        println("sourcename ${card.headLineSource.name}")
+        bundle.putString("title", card.headLineTitle)
+        bundle.putString("publish", card.headLinePublish)
+        bundle.putString("sourceName", card.headLineSource.name)
+        bundle.putString("description", card.newsDescription)
+        bundle.putString("content", card.newsContent)
+        bundle.putString("image", card.headLineThumbNail)
+        var frag = ItemDetailsFragment()
+        frag.arguments =bundle
+
     }
 
 

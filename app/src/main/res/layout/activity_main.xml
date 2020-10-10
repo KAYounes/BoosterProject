@@ -5,25 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.destinations.MainActivity"
-    >
+    android:background="#EAEAEA">
 
     <fragment
         android:id="@+id/nav_host_fragment_container"
+        class="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        class="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/app_nav_graph"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_nav_view"
-        android:layout_marginBottom="60dp"/>
+        app:navGraph="@navigation/app_nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_view"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_nav_bar_bg"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@color/botNavBarBg"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
