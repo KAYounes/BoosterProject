@@ -28,7 +28,7 @@ class headlinesViewModel: ViewModel() {
                 if( response.body() == null){
                     println("Error response.body is null from headlinesViewModel $currentPage")
                 }
-                println("success from callGetNews")// ${response.body()?.articles}")
+                println("success from callGetNews page $currentPage")// ${response.body()?.articles}")
                 headlinesMutableLiveDate.value = response.body()?.articles
             }
 
@@ -46,9 +46,6 @@ class headlinesViewModel: ViewModel() {
     fun getNews(): LiveData<FullNewsModel>{
         return news
     }
-
-
-
 
     fun getNewsList(currentPage: Int){
         println("calling callGetNews")

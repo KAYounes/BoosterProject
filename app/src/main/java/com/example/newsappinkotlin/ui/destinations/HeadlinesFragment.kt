@@ -48,7 +48,6 @@ class HeadlinesFragment : Fragment(), CardClickListener {
         viewModel.getNewsList(currentPage)
     }
 
-
     fun fetchPage(headlines: ArrayList<FullNewsModel>){
         recyclerViewAdapter.nextPage(headlines)
         attachOnScrollListener()
