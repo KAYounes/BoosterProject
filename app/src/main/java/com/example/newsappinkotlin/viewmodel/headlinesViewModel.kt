@@ -14,6 +14,7 @@ import javax.security.auth.callback.Callback
 class headlinesViewModel: ViewModel() {
 
     private val headlinesMutableLiveDate : MutableLiveData<ArrayList<FullNewsModel>> = MutableLiveData()
+    private val news : MutableLiveData<FullNewsModel> = MutableLiveData()
 
     val services: ApiCalls? = ApiClient.getClient()?.create(ApiCalls::class.java)
 
@@ -37,6 +38,17 @@ class headlinesViewModel: ViewModel() {
     fun getHeadlines(): LiveData<ArrayList<FullNewsModel>>{
         return headlinesMutableLiveDate
     }
+
+    fun updateNews(card: FullNewsModel){
+        news.value = card
+    }
+
+    fun getNews(): LiveData<FullNewsModel>{
+        return news
+    }
+
+
+
 
     fun getNewsList(currentPage: Int){
         println("calling callGetNews")

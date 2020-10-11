@@ -34,21 +34,17 @@ class HeadlinesFragment : Fragment(), CardClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        newsFeedRecyclerView.adapter = HeadlinesRecyclerViewAdapter(list);
-//        newsFeedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-
-//        val viewModel: headlinesViewModel= headlinesViewModel()
         recyclerViewAdapter = HeadlinesRecyclerViewAdapter(mutableListOf(), this)
         linearLayoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         newsFeedRecyclerView.adapter = recyclerViewAdapter
         newsFeedRecyclerView.layoutManager = linearLayoutManager
-//        newsFeedRecyclerView.adapter = recyclerViewAdapter
-//        newsFeedRecyclerView.layoutManager = linearLayoutManager
+    }
 
-        viewModel = ViewModelProvider(this).get(headlinesViewModel::class.java)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(headlinesViewModel::class.java)
         viewModel.getHeadlines().observe(viewLifecycleOwner,
-        Observer { t -> fetchPage(t) })
+            Observer { t -> fetchPage(t) })
         viewModel.getNewsList(currentPage)
     }
 
@@ -80,18 +76,18 @@ class HeadlinesFragment : Fragment(), CardClickListener {
     override fun onCardClick(card: FullNewsModel, position: Int) {
         println("onclick = p: $position -- ${card.headLineSource.name} ${card}")
         findNavController().navigate(R.id.action_headlinesFragment_to_itemDetailsFragment)
+        viewModel.updateNews(card)
 
-
-        var bundle = Bundle()
-        println("sourcename ${card.headLineSource.name}")
-        bundle.putString("title", card.headLineTitle)
-        bundle.putString("publish", card.headLinePublish)
-        bundle.putString("sourceName", card.headLineSource.name)
-        bundle.putString("description", card.newsDescription)
-        bundle.putString("content", card.newsContent)
-        bundle.putString("image", card.headLineThumbNail)
-        var frag = ItemDetailsFragment()
-        frag.arguments =bundle
+//        var bundle = Bundle()
+//        println("sourcename ${card.headLineSource.name}")
+//        bundle.putString("title", card.headLineTitle)
+//        bundle.putString("publish", card.headLinePublish)
+//        bundle.putString("sourceName", card.headLineSource.name)
+//        bundle.putString("description", card.newsDescription)
+//        bundle.putString("content", card.newsContent)
+//        bundle.putString("image", card.headLineThumbNail)
+//        var frag = ItemDetailsFragment()
+//        frag.arguments =bundle
 
     }
 
