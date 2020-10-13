@@ -16,4 +16,7 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
     fun saveNews(dataModel : DataModel){
      repository.addNews(dataModel)
     }
+
+
+    
 }
