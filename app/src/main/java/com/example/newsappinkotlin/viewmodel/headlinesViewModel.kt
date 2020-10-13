@@ -21,14 +21,11 @@ class headlinesViewModel: ViewModel() {
     fun callGetNews(currentPage: Int) {
         services?.getNews(currentPage = currentPage)!!.enqueue(object : retrofit2.Callback<NewsResponse?>{
             override fun onFailure(call: Call<NewsResponse?>, t: Throwable) {
-                println("Error source: ViewModel")
             }
 
             override fun onResponse(call: Call<NewsResponse?>, response: Response<NewsResponse?>) {
                 if( response.body() == null){
-                    println("Error response.body is null from headlinesViewModel $currentPage")
                 }
-                println("success from callGetNews page $currentPage")// ${response.body()?.articles}")
                 headlinesMutableLiveDate.value = response.body()?.articles
             }
 
@@ -48,7 +45,6 @@ class headlinesViewModel: ViewModel() {
     }
 
     fun getNewsList(currentPage: Int){
-        println("calling callGetNews")
         callGetNews(currentPage)
     }
 }
